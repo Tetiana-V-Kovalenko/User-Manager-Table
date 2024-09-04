@@ -1,0 +1,10 @@
+<svg width="0" height="0" class="hidden">
+  <symbol version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="enlarge">
+    <g id="icomoon-ignore"></g>
+    <path d="M512 0v208l-80-80-96 96-48-48 96-96-80-80zM224 336l-96 96 80 80h-208v-208l80 80 96-96z"></path>
+  </symbol>
+  <symbol version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="shrink">
+    <g id="icomoon-ignore"></g>
+    <path d="M224 288v208l-80-80-96 96-48-48 96-96-80-80zM512 48l-96 96 80 80h-208v-208l80 80 96-96z"></path>
+  </symbol>
+</svg>
