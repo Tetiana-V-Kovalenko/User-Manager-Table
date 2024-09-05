@@ -1,6 +1,6 @@
 import sprite from "../assets/svg/sprite.svg";
 type IconProps = {
-  id: "enlarge" | "shrink";
+  id: "enlarge" | "shrink" | "circle-up";
   className?: string;
 };
 export const Icon = ({ id, className }: IconProps) => {

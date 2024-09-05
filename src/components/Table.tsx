@@ -48,12 +48,30 @@ export const Table = <T extends User>({
                     key={header.id}
                     className="py-[8px] text-start w-fit  font-sans text-blue-900 border-none h-[56px] "
                   >
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
+                    <div className="flex justify-start items-center gap-2">
+                      {header.isPlaceholder
+                        ? null
+                        : flexRender(
+                            header.column.columnDef.header,
+                            header.getContext()
+                          )}
+                      <div onClick={header.column.getToggleSortingHandler()}>
+                        <Icon
+                          id="circle-up"
+                          className={`w-4  ${
+                            header.column.getIsSorted() === "desc"
+                              ? "rotate-180"
+                              : header.column.getIsSorted() === "asc"
+                              ? ""
+                              : " fill-blue-300"
+                          } ${
+                            header.getContext().column.id === "checkbox"
+                              ? " hidden"
+                              : " "
+                          }`}
+                        />
+                      </div>
+                    </div>
                   </th>
                 );
               })}
@@ -68,13 +86,7 @@ export const Table = <T extends User>({
                 className="hover:outline hover:outline-[1px] hover:outline-blue-200"
               >
                 {row.getVisibleCells().map((cell) => (
-                  <td
-                    className="py-[10px] "
-                    key={cell.id}
-                    onClick={() => {
-                      console.log();
-                    }}
-                  >
+                  <td className="py-[10px] " key={cell.id}>
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </td>
                 ))}

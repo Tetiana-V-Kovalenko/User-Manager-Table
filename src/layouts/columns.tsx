@@ -1,21 +1,30 @@
 import {
   CellContext,
   ColumnDef,
+  RowData,
   createColumnHelper,
 } from "@tanstack/react-table";
 import { User } from "../types/user";
 import { ReactNode } from "react";
 
+interface ColumnMeta<User extends RowData> {
+  filterKey?: keyof User;
+}
 const columnHelper = createColumnHelper<User>();
+
 export const column: ColumnDef<User>[] = [
   columnHelper.display({
     id: "checkbox",
     cell: ({ row }) => {
-      console.log(row);
       return <div className="px-4">{row.index + 1}</div>;
     },
   }),
-  { accessorKey: "name", id: "name", header: "Name" },
+  {
+    accessorKey: "name",
+    id: "name",
+    header: "Name",
+    meta: { filterKey: "name" },
+  },
   {
     accessorKey: "username",
     id: "username",
@@ -29,6 +38,7 @@ export const column: ColumnDef<User>[] = [
         <span> Empty username </span>
       );
     },
+    meta: { filterKey: "username" },
   },
   {
     accessorKey: "email",
@@ -46,6 +56,7 @@ export const column: ColumnDef<User>[] = [
         <span> Empty email </span>
       );
     },
+    meta: { filterKey: "email" },
   },
   {
     accessorKey: "phone",
@@ -60,5 +71,6 @@ export const column: ColumnDef<User>[] = [
         <span> Empty phone </span>
       );
     },
+    meta: { filterKey: "phone" },
   },
 ];
