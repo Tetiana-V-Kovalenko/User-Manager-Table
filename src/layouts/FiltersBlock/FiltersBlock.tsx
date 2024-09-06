@@ -23,11 +23,14 @@ export const FiltersBlock = () => {
           Please use the inputs below for advanced filtering
         </h2>
         <span
-          className="flex items-center gap-1 text-blue-800"
+          className="flex items-center gap-1 text-blue-800 hover:text-blue-600 group"
           onClick={handleResetFilters}
         >
           Reset
-          <Icon id="reset" className="w-4 h-4 " />
+          <Icon
+            id="reset"
+            className="w-4 h-4 fill-blue-800 group-hover:fill-blue-600"
+          />
         </span>
       </div>
 
