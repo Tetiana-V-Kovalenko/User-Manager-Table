@@ -1,50 +1,25 @@
-# React + TypeScript + Vite
+# User Manager Table
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a test task to create a dynamic table displaying user information such as name, username, email, and phone number. The table data is fetched from JSONPlaceholder and displayed using a modern tech stack to ensure fast development and efficient state management.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Table Display**: Shows `name`, `username`, `email`, and `phone` columns.
+- **Advanced Filtering**: The table supports filtering on each column (`name`,`username`, `email`, `phone`). Filters are applied dynamically, with real-time updates to the displayed data.
+- **State Management**: Redux Toolkit is used for centralized state management.
+- **Data Fetching**: RTK Query is used to interact with the JSONPlaceholder API.
+- **Table Rendering**: TanStack Table is used to create the responsive and performant table.
+- **Styling**: Tailwind CSS is used for fast and efficient styling.
+- **Bundling**: Vite is used to build the project with quick startup times and hot reloading.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **React**: Core framework for building the UI.
+- **TypeScript**: For type-safe code and better development tools.
+- **Redux Toolkit**: For state management.
+- **RTK Query**: For handling API requests and caching.
+- **TanStack Table**: For building the table.
+- **Tailwind CSS**: For styling.
+- **Vite**: For fast development and building.
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+##
