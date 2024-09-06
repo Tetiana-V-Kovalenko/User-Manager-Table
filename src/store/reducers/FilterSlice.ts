@@ -22,5 +22,8 @@ export const filterSlice = createSlice({
     ) {
       state.filters[action.payload.field] = action.payload.value;
     },
+    resetFilters(state) {
+      state.filters = { name: "", username: "", email: "", phone: "" };
+    },
   },
 });

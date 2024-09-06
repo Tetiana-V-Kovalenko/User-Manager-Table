@@ -1,14 +1,15 @@
+import { FC } from "react";
 import sprite from "../assets/svg/sprite.svg";
+
 type IconProps = {
-  id: "enlarge" | "shrink" | "circle-up";
+  id: "enlarge" | "shrink" | "circle-up" | "reset";
   className?: string;
 };
-export const Icon = ({ id, className }: IconProps) => {
+
+export const Icon: FC<IconProps> = ({ id, className }) => {
   return (
-    // <div className={className}>
     <svg className={className}>
       <use href={`${sprite}#${id}`} />
     </svg>
-    // </div>
   );
 };

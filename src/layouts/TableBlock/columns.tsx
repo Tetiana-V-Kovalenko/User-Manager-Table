@@ -1,15 +1,10 @@
 import {
   CellContext,
   ColumnDef,
-  RowData,
   createColumnHelper,
 } from "@tanstack/react-table";
-import { User } from "../types/user";
-import { ReactNode } from "react";
+import { User } from "../../types/user";
 
-interface ColumnMeta<User extends RowData> {
-  filterKey?: keyof User;
-}
 const columnHelper = createColumnHelper<User>();
 
 export const column: ColumnDef<User>[] = [
@@ -48,7 +43,7 @@ export const column: ColumnDef<User>[] = [
       return typeof row.getValue() === "string" ? (
         <a
           href={`mailto:${row.getValue()}`}
-          className="text-blue-900 underline text-sm"
+          className="text-blue-900 underline text-[smaller]"
         >
           {row.getValue()}
         </a>
@@ -64,7 +59,10 @@ export const column: ColumnDef<User>[] = [
     header: "Phone",
     cell: (row: CellContext<User, any>) => {
       return typeof row.getValue() === "string" ? (
-        <a href={`tel:${row.getValue()}`} className="text-sm font-medium">
+        <a
+          href={`tel:${row.getValue()}`}
+          className=" font-medium text-[smaller]"
+        >
           {row.getValue()}
         </a>
       ) : (

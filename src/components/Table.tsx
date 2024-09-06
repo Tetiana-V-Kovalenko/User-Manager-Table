@@ -1,26 +1,24 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import { User } from "../types/user";
 import { Table as TanStackTable, flexRender } from "@tanstack/react-table";
 import { Icon } from "./Icon";
 
-export const Table = <T extends User>({
-  table,
-  className,
-}: {
+type TableProps<T extends User> = {
   table: TanStackTable<T>;
   className?: string;
-}) => {
+};
+
+export const Table: FC<TableProps<User>> = ({ table, className }) => {
   const [isExtended, setIsExtended] = useState(false);
   const handleExtendedTable = () => {
     setIsExtended(!isExtended);
-    isExtended ? table.setPageSize(10) : table.setPageSize(500);
   };
   return (
     <div
       className={
         " border-solid border-[1px] border-blue-900  " +
         (isExtended
-          ? " w-full max-h-[90vh]  bg-white absolute top-[54px] left-[50%] text-xl -translate-x-[50%] z-[2] max-w-[1400px] rounded-xl overflow-auto "
+          ? " w-full max-h-[90vh]  bg-white absolute top-[54px] left-[50%] text-2xl -translate-x-[50%] z-[2] max-w-[1400px] rounded-xl overflow-auto "
           : " max-w-[1200px] relative my-0 mx-auto overflow-auto rounded-xl text-lg")
       }
     >
@@ -58,7 +56,7 @@ export const Table = <T extends User>({
                       <div onClick={header.column.getToggleSortingHandler()}>
                         <Icon
                           id="circle-up"
-                          className={`w-4  ${
+                          className={`w-4 h-4  ${
                             header.column.getIsSorted() === "desc"
                               ? "rotate-180"
                               : header.column.getIsSorted() === "asc"
