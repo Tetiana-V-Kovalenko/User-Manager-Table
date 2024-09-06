@@ -2,7 +2,7 @@ import DebouncedInput from "../../components/DebounceInput";
 import { Icon } from "../../components/Icon";
 import { useAppDispatch, useAppSelector } from "../../hooks/storeHooks";
 import { FilterState, filterSlice } from "../../store/reducers/FilterSlice";
-
+import reset from "../../assets/svg/spinner.svg";
 export const FiltersBlock = () => {
   const dispatch = useAppDispatch();
   const { filters } = useAppSelector((state) => state.filterReducer);
@@ -28,8 +28,8 @@ export const FiltersBlock = () => {
         >
           Reset
           <Icon
-            id="reset"
-            className="w-4 h-4 fill-blue-800 group-hover:fill-blue-600"
+            src={reset}
+            className="w-4 h-4 fill-blue-800 group-hover:opacity-60"
           />
         </span>
       </div>

@@ -2,7 +2,9 @@ import { FC, useState } from "react";
 import { User } from "../types/user";
 import { Table as TanStackTable, flexRender } from "@tanstack/react-table";
 import { Icon } from "./Icon";
-
+import shrink from "../assets/svg/shrink.svg";
+import enlarge from "../assets/svg/enlarge.svg";
+import circle from "../assets/svg/circle.svg";
 type TableProps<T extends User> = {
   table: TanStackTable<T>;
   className?: string;
@@ -18,19 +20,19 @@ export const Table: FC<TableProps<User>> = ({ table, className }) => {
       className={
         " border-solid border-[1px] border-blue-900  " +
         (isExtended
-          ? " w-full max-h-[90vh]  bg-white absolute top-[54px] left-[50%] text-2xl -translate-x-[50%] z-[2] max-w-[1400px] rounded-xl overflow-auto "
+          ? " w-full max-h-[90vh]  bg-white absolute top-[54px] left-[50%] text-xl -translate-x-[50%] z-[2] max-w-[1400px] rounded-xl overflow-auto "
           : " max-w-[1200px] relative my-0 mx-auto overflow-auto rounded-xl text-lg")
       }
     >
       <div onClick={handleExtendedTable}>
         {isExtended ? (
           <Icon
-            id="shrink"
+            src={shrink}
             className="absolute w-[15px] h-[15px] p-0 top-2 right-2 bg-transparent fill-blue-900 border-none hover:fill-gray-0 "
           />
         ) : (
           <Icon
-            id="enlarge"
+            src={enlarge}
             className="absolute w-[15px] h-[15px] p-0 top-2 right-2 bg-transparent fill-blue-900 border-none hover:fill-gray-0 "
           />
         )}
@@ -55,13 +57,13 @@ export const Table: FC<TableProps<User>> = ({ table, className }) => {
                           )}
                       <div onClick={header.column.getToggleSortingHandler()}>
                         <Icon
-                          id="circle-up"
+                          src={circle}
                           className={`w-4 h-4  ${
                             header.column.getIsSorted() === "desc"
                               ? "rotate-180"
                               : header.column.getIsSorted() === "asc"
                               ? ""
-                              : " fill-blue-300"
+                              : " fill-blue-300 opacity-30"
                           } ${
                             header.getContext().column.id === "checkbox"
                               ? " hidden"
